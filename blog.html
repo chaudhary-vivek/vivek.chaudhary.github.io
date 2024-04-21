@@ -61,6 +61,42 @@
     padding: 20px;
     font-size: smaller;
   }
+  .article-container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+  }
+  
+  .article {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  
+  .article img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .article-content {
+    padding: 15px;
+  }
+
+  .article-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+  }
+
+  .article-link {
+    text-decoration: none;
+    color: blue;
+    font-size: 1em;
+  }
+
 </style>
 </head>
 <body>
@@ -74,16 +110,23 @@
 </header>
 
 <main class="content">
-  <h2>Papers</h2>
-  <div class="publication">
-    <p> Graph Coloring Using Heat Diffusion  <a href="https://arxiv.org/pdf/2312.06877.pdf">arxiv</a></p>
-  </div>
-  <div class="publication">
-    <p> A Novel Differentiable Loss Function for Unsupervised Graph Neural Networks in Graph Partitioning. <a href="https://arxiv.org/pdf/2312.06877.pdf">arxiv</a></p>
-  </div>
-  <div class="publication">
-    <p> Graph Matching Using Heat Diffusion. <a>Coming soon!</a></p>
-  </div>
+    <div class="article-container">
+        <div class="article">
+          <img src="gcp.webp" alt="Graph Coloring">
+          <div class="article-content">
+            <p class="article-title">Graph coloring and an awesome new way to solve it!</p>
+            <a href="./graph_coloring.html" ,class="article-link">Read More</a>
+          </div>
+        </div>
+        <div class="article">
+          <img src="gm.webp" alt="Graph Matching">
+          <div class="article-content">
+            <p class="article-title">Graph matching is everywhere. But how to solve it?</p>
+            <a href="#" ,class="article-link">Coming Soon!</a>
+          </div>
+        </div>
+      </div>
+
 
 </main>
 
