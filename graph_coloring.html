@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Vivek Chaudhary</title>
+<title>Vivek Chaudhary Research</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -127,7 +127,7 @@
 <main class="content">
   <body>
 
-    <h1>Graph coloring and an awesome new way to solve it!</h1>    
+    <h1>Graph coloring in real world</h1>    
     <div class="image-container">
       <img src="gcp.webp" alt="Graph Coloring">
       <p class="image-caption">Graph Coloring</p>
@@ -135,7 +135,80 @@
     
     <div class="text-content">
       <p>This article is a companion to my research paper titled <strong> "Graph Coloring Using Heat Diffusion" </strong> which can be found here <a href="https://arxiv.org/abs/2312.06877" ,class="article-link">link to research paper</a>. The code to reproduce all results and charts from the research paper can be found here <a href="https://github.com/chaudhary-vivek/HeO_GCP" ,class="article-link">link to code</a>.</p>
-      <p>Graph coloring is a concept in graph theory where each vertex of a graph is assigned a color in such a way that no two adjacent vertices share the same color. The goal is to use the minimum number of colors possible. This concept isn't just theoretical; it has practical applications in various fields. For instance, in scheduling, graph coloring can be used to ensure that tasks sharing common resources are not scheduled at the same time. It's also instrumental in creating efficient networking schedules, where different channels or frequencies (represented as colors) are assigned to ensure clear communication with no interference. Additionally, graph coloring algorithms play a vital role in solving Sudoku, designing seating arrangements, and even in biology, where they help to model the process of gene expression levels in different cell types. </p>
+      <h2>A real world case of graph coloring</h2>
+      <p> In this section, I will introduce my readers to a real world situation where we use graph coloring.
+      </p>
+      <p>Let us assume we are renting out cars (think of your favourite car rental company). We got 6 bookings today. 
+      We have to assign a car to each booking.
+      </p>
+      <p> Booking 1 : 02:00 Hours to 04:00 Hours </p>
+      <p> Booking 2 : 10:00 Hours to 14:00 Hours </p>
+      <p> Booking 3 : 02:00 Hours to 08:00 Hours </p>
+      <p> Booking 4 : 10:00 Hours to 20:00 Hours </p>
+      <p> Booking 5 : 06:00 Hours to 17:00 Hours </p>
+      <p> Booking 6 : 18:00 Hours to 24:00 Hours </p>
+      <br>
+      <p> Plotted against time, the bookings will look like this:</p>
+      <div class="image-container">
+        <img src="bookings.png" alt="Bookings for the day plotted against time">
+        <p class="image-caption">Bookings for the day plotted against time</p>
+      </div>
+      <br>
+      <p>
+        Here, we want to minimize the number of cars we rent out (to save on maintenance costs).
+        Also, we can't rent out the same car to two bookings that are clashing.
+        For example, booking 1 and book 3 both are clashing from 02:00 Hours to 04:00 Hours. 
+      </p>
+      <p>
+        To better understand these clashes, let us plot an interval graph. The following graph is an interval graph.
+        Each of the nodes represents  a booking. The label on each node shows the duration of the booking.
+        If two nodes are connected, that means that they are clashing. 
+        For example node (2,4) is connected to node (2,8) because both of them are clashing. 
+      </p>
+      <div class="image-container">
+        <img src="interval_graph.png" alt="Interval graph for the bookings">
+        <p class="image-caption">Interval graph for the bookings</p>
+      </div>
+      <p>
+        Here is the business problem we began with:
+      </p>
+      <p>
+        We want to assign to assign the minimum number of <span style="color: cyan;">cars </span>such that no two 
+        <span style="color: magenta;">clashing bookings</span> are assigned the same <span style="color: cyan;">car</span>  </p>
+      <p>
+        Using the interval graph, we can rephrase the above problem as follows:
+      </p>
+      <p>
+        We want to assign to assign the minimum number of <span style="color: cyan;">colors</span> such that no two 
+        <span style="color: magenta;">adjacent nodes</span> are assigned the same <span style="color: cyan;">color</span>  </p>
+      </p>
+      <p>
+        In the above statement, we framed our business problem as a graph coloring problem.
+        Graph coloring is a computationally challenging problem, and seubsequently, an active area of research. 
+        There are a number of algorithms which can solve the graph coloring problem. Some popular ones are the greedy algorithm and Tabu search.
+      </p>
+      <p>
+        Let us now see what a solution to our problem would look like.
+      </p>
+      <div class="image-container">
+        <img src="colored_graph.png" alt="Colored interval graph">
+        <p class="image-caption">Colored interval graph</p>
+      </div>
+      <p>
+        In the above graph, we see that no two adjacent nodes are assigned the same color.
+        Also, the nodes are assigned the minimum number of colors possible, which is three.
+        Once we decode this and plot the bookings against time, we get:
+      </p>
+      <div class="image-container">
+        <img src="output_colored.png" alt="Bookings with assigned cars">
+        <p class="image-caption">Bookings with assigned cars, each color represents a car</p>
+      </div>
+      <p>
+        In the above plot we see, booking number 1 and 5 are assigned the same car (orange), since they are not clashing.
+        Boookings 2, 3, and 6 are assigned the same car (magenta) since they do not clash.
+        Booking 4 is assigned the blue car.
+      </p>
+      <h2>If you are interested to learn about an exciting new way to solve graph coloring using a gradient based iterative solver, please check out my paper titled <a href="https://arxiv.org/abs/2312.06877">Graph Coloring Using Heat Diffusion</a></h2>
 
     </div>
     
